@@ -42,10 +42,11 @@ public class QuestionCollector implements EntryPoint {
       {"English", "Chinese", "Spanish", "French"};
 
   private Button askQuestionButton = new Button("I feel lucky!");
+  private Button submitQuestionButton = new Button("Submit Question");
   private ListBox introLanguageListBox = new ListBox();
   private HTMLPanel introPanel = new HTMLPanel("<div id=\"introduction\"></div>");
   private HTMLPanel introParagraphPanel = new HTMLPanel("<h1 id=\"intro-para\"></h1>");
-  private FocusPanel questionPanel = new FocusPanel();
+  private VerticalPanel questionPanel = new VerticalPanel();
   private TextBox questionEntryBox = new TextBox();
 
   /**
@@ -58,6 +59,7 @@ public class QuestionCollector implements EntryPoint {
     RootPanel.get().add(introPanel);
 
     questionPanel.add(questionEntryBox);
+    questionPanel.add(submitQuestionButton);
     RootPanel.get().add(questionPanel);
     questionPanel.setVisible(false);
 
@@ -72,8 +74,7 @@ public class QuestionCollector implements EntryPoint {
       @Override
       public void onClick(ClickEvent event) {
         // Set intro paragraph and intro change button invisible.
-        introLanguageListBox.setVisible(false);
-        introParagraphPanel.setVisible(false);
+        introPanel.setVisible(false);
         questionPanel.setVisible(true);
       }
     });
@@ -94,5 +95,14 @@ public class QuestionCollector implements EntryPoint {
     questionEntryBox.setStyleName("questionPanel", true);
     questionEntryBox.setMaxLength(500);
     questionEntryBox.setText("Please Enter Your Question today!");
+
+    submitQuestionButton.addClickHandler(new ClickHandler() {
+      @Override
+      public void onClick(ClickEvent event) {
+        // Set intro paragraph and intro change button invisible.
+        String question = questionEntryBox.getText();
+        Window.alert(question);
+      }
+    });
   }
 }
