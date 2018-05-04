@@ -32,3 +32,12 @@ h1 {
 #closeButton {
   margin: 15px 6px 6px;
 }
+
+.askQuestionButton {
+  float: right;
+}
+
+.questionPanel {
+  float: center;
+  width: 500px;
+}
