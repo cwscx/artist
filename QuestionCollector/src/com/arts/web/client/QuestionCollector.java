@@ -86,6 +86,7 @@ public class QuestionCollector implements EntryPoint {
     Element introDiv = introParagraphPanel.getElementById("intro-para");
     introDiv.setInnerText("This is " + defaultLanguage + " intro.");
 
+    // Handler to change the intro paragraph.
     introLanguageListBox.addChangeHandler(new ChangeHandler() {
       public void onChange(ChangeEvent event) {
         String selectedLanguage = introLanguageListBox.getSelectedItemText();
@@ -94,6 +95,7 @@ public class QuestionCollector implements EntryPoint {
       }
     });
 
+    // The text box to enter questions. Sets style and default text.
     questionEntryBox.setStyleName("questionPanel", true);
     questionEntryBox.setMaxLength(500);
     questionEntryBox.setText("Please Enter Your Question today!");
