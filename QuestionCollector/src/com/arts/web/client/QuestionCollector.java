@@ -103,8 +103,24 @@ public class QuestionCollector implements EntryPoint {
       public void onClick(ClickEvent event) {
         // Set intro paragraph and intro change button invisible.
         String question = questionEntryBox.getText();
-        Window.alert(question);
+        saveQuestionSerivce.sendQuestion(question, new AsyncCallback<Boolean>() {
+          @Override
+          public void onFailure(Throwable caught) {
+            Window.alert(caught.getMessage());
+          }
+
+          @Override
+          public void onSuccess(Boolean result) {
+            if (result) {
+              Window.alert("return true");
+            } else {
+              Window.alert("return false");
+            }         
+          }
+        });
       }
     });
+
+
   }
 }

@@ -13,6 +13,6 @@ public class SaveQuestionServiceImpl extends RemoteServiceServlet implements
 
     @Override
     public boolean sendQuestion(String question) throws IllegalArgumentException {
-
+      return true;
     }
 }
