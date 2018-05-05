@@ -49,6 +49,8 @@ public class QuestionCollector implements EntryPoint {
   private VerticalPanel questionPanel = new VerticalPanel();
   private TextBox questionEntryBox = new TextBox();
 
+  private final SaveQuestionServiceAsync saveQuestionSerivce = GWT.create(SaveQuestionService.class);
+
   /**
    * This is the entry point method.
    */
